@@ -3,6 +3,14 @@
     // File Layout & Paths
     "rootDir": "./src",
     "outDir": "./dist",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["src/*"],
+      "@config/*": ["config/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@controllers/*": ["controllers/*"],
+      "@utils/*": ["utils/*"]
+    },
 
     // Environment Settings
     "module": "NodeNext",
