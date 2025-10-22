@@ -15,7 +15,15 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@configs/*": ["src/configs/*"]
+      "@configs/*": ["src/configs/*"],
+      "@app/*": ["src/app/*"],
+      "@middlewares/*": ["src/app/middlewares/*"],
+      "@modules/*": ["src/app/modules/*"],
+      "@utils/*": ["src/utils/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@shared/*": ["src/shared/*"],
+      "@enums/*": ["src/enums/*"],
+      "@interfaces/*": ["src/interfaces/*"]
     },
 
     // Other Outputs
