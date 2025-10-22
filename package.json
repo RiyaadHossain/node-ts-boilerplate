@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "dev": "tsx watch src/server.js",
-    "buuild": "tsc",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc && tsc-alias",
     "start": "node dist/server.js"
   },
   "keywords": [],
@@ -16,12 +16,15 @@
     "@types/express": "^5.0.3",
     "@types/node": "^24.9.1",
     "cors": "^2.8.5",
-    "D": "^1.0.0",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.19.2",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
+    "tsc-alias": "^1.8.16",
     "tsx": "^4.20.6"
   }
 }
