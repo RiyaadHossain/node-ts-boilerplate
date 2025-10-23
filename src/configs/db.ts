@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from "./index.js";
+import { logger } from "@/utils/logger.js";
 
 export async function connectDB() {
   if (!dotenv.MONGO_URI) 
@@ -8,9 +9,9 @@ export async function connectDB() {
 
   try {
     await mongoose.connect(dotenv.MONGO_URI);
-    console.log("🧮 MongoDB connected successfully");
+    logger.info("🧮 MongoDB connected successfully");
   } catch (err) {
-    console.error("💥 MongoDB connection error:", err);
+    logger.error("💥 MongoDB connection error:", err);
     process.exit(1);
   }
 }

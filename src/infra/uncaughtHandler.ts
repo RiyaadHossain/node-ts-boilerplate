@@ -1,3 +1,4 @@
+import { logger } from "@/utils/logger.js";
 import { gracefulShutdown } from "./gracefulShutdown.js";
 import { Server } from "http";
 
@@ -7,12 +8,12 @@ export function regProcessHandlers(server: Server) {
   );
 
   process.on("uncaughtException", (err) => {
-    console.error("💥 Uncaught Exception:", err);
+    logger.error("💥 Uncaught Exception:", err);
     gracefulShutdown(server, "uncaughtException");
   });
 
   process.on("unhandledRejection", (reason) => {
-    console.error("🚨 Unhandled Rejection:", reason);
+    logger.error("🚨 Unhandled Rejection:", reason);
     gracefulShutdown(server, "unhandledRejection");
   });
 }
