@@ -20,12 +20,14 @@
     "express": "^5.1.0",
     "helmet": "^8.1.0",
     "http-status": "^2.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.2",
     "typescript": "^5.9.3",
     "zod": "^4.1.12"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
+    "@types/jsonwebtoken": "^9.0.10",
     "tsc-alias": "^1.8.16",
     "tsx": "^4.20.6"
   }

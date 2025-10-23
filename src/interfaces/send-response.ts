@@ -1,8 +1,8 @@
-export interface IAPIResponse {
+export interface IAPIResponse<T> {
   statusCode: number;
   success: boolean;
   message: string;
-  data?: Record<string, unknown> | null;
+  data?: T | null;
   meta?: {
     page: number;
     limit: number;
