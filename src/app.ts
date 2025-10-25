@@ -4,6 +4,7 @@ import cors from "cors";
 import helmet from "helmet";
 import errorHandler from "@/app/middlewares/error-handler.js";
 import router from "@app/routes/index.js";
+import cookieParser from "cookie-parser";
 
 const app: Application = express();
 
@@ -11,6 +12,8 @@ const app: Application = express();
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Routes
 app.use("/api/v1", router);
