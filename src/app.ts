@@ -11,7 +11,7 @@ import morgan from 'morgan';
 import { morganFormat, morganStream } from '@/configs/morgan.js';
 
 const app: Application = express();
- 
+
 // 🧩 Middlewares
 app.use(cors());
 app.use(helmet());
