@@ -1,13 +1,15 @@
-import { userSearchableFields } from "./user.constants.js";
-import type { IUserSearchAndFilterFields } from "./user.interface.js";
-import { User } from "./user.model.js";
-import { paginationHelpers } from "@/helpers/pagination-helper.js";
-import type { IPaginationOptions } from "@/interfaces/pagination.js";
-import type { SortOrder } from "mongoose";
+import type { SortOrder } from 'mongoose';
+
+import { userSearchableFields } from './user.constants.js';
+import type { IUserSearchAndFilterFields } from './user.interface.js';
+import { User } from './user.model.js';
+
+import { paginationHelpers } from '@/helpers/pagination-helper.js';
+import type { IPaginationOptions } from '@/interfaces/pagination.js';
 
 const getAllUsers = async (
   paginationFields: IPaginationOptions,
-  searchAndFilterFields: IUserSearchAndFilterFields
+  searchAndFilterFields: IUserSearchAndFilterFields,
 ) => {
   // Pagination Options
   const { skip, page, limit, sortBy, sortOrder } =
@@ -24,7 +26,7 @@ const getAllUsers = async (
   if (searchTerm) {
     andCondition.push({
       $or: userSearchableFields.map((field) => ({
-        [field]: { $regex: searchTerm, $options: "i" },
+        [field]: { $regex: searchTerm, $options: 'i' },
       })),
     });
   }
@@ -37,9 +39,7 @@ const getAllUsers = async (
     });
   }
 
-  const whereCondition = Object.keys(andCondition).length
-    ? { $and: andCondition }
-    : {};
+  const whereCondition = Object.keys(andCondition).length ? { $and: andCondition } : {};
 
   const data = await User.find(whereCondition).skip(skip).limit(limit).lean();
   const total = await User.countDocuments(whereCondition);

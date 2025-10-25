@@ -1,7 +1,8 @@
-import { AuthService } from "@/app/modules/auth/auth.services.js";
-import catchAsync from "@/shared/catch-async.js";
-import sendResponse from "@/shared/send-response.js";
-import type { Request, Response } from "express";
+import type { Request, Response } from 'express';
+
+import { AuthService } from '@/app/modules/auth/auth.services.js';
+import catchAsync from '@/shared/catch-async.js';
+import sendResponse from '@/shared/send-response.js';
 
 const login = catchAsync(async (req: Request, res: Response) => {
   const payload = req.body;
@@ -10,11 +11,10 @@ const login = catchAsync(async (req: Request, res: Response) => {
   const responseData = {
     statusCode: 200,
     success: true,
-    message: "Login successful",
+    message: 'Login successful',
     data,
   };
-  sendResponse(res, responseData)
-
+  sendResponse(res, responseData);
 });
 
 export const AuthController = {

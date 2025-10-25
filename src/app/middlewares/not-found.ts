@@ -1,5 +1,6 @@
-import { logger } from "@/utils/logger.js";
-import type { Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from 'express';
+
+import { logger } from '@/utils/logger.js';
 
 export const notFound = (req: Request, res: Response, _next: NextFunction) => {
   const errorMessage = `API Not Found - ${req.originalUrl}`;
@@ -10,7 +11,7 @@ export const notFound = (req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json({
     success: false,
     statusCode: 404,
-    message: "API Not Found",
+    message: 'API Not Found',
     path: req.originalUrl,
   });
 };

@@ -1,10 +1,10 @@
-import { logger } from "@/utils/logger.js";
+import { logger } from '@/utils/logger.js';
 
 const statusEmoji = (status: number) => {
-  if (status >= 500) return "💥";
-  if (status >= 400) return "⚠️";
-  if (status >= 300) return "🔹";
-  return "✅";
+  if (status >= 500) return '💥';
+  if (status >= 400) return '⚠️';
+  if (status >= 300) return '🔹';
+  return '✅';
 };
 
 export const morganStream = {
@@ -15,4 +15,4 @@ export const morganStream = {
   },
 };
 
-export const morganFormat = ":method :url :status :res[content-length] - :response-time ms";
+export const morganFormat = ':method :url :status :res[content-length] - :response-time ms';

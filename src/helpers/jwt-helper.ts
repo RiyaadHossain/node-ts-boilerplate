@@ -1,13 +1,14 @@
-import type { AuthUser } from "@/interfaces/jwt.js";
-import type { Secret } from "jsonwebtoken";
-import jwt from "jsonwebtoken";
+import type { Secret } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
+
+import type { AuthUser } from '@/interfaces/jwt.js';
 
 const createToken = (
   payload: Record<string, unknown>,
   secret: Secret,
-  expireTime: string
+  expireTime: string,
 ): string => {
-  //@ts-ignore
+  //@ts-expect-error
   return jwt.sign(payload, secret, {
     expiresIn: expireTime,
   });

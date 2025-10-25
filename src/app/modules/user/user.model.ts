@@ -1,7 +1,8 @@
-import { USER_ROLES } from "@/enums/user.js";
-import type { IUser, UserMethods, UserModel } from "./user.interface.js";
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose';
 
+import type { IUser, UserMethods, UserModel } from './user.interface.js';
+
+import { USER_ROLES } from '@/enums/user.js';
 
 // Step 1: Define Schema
 const userSchema = new Schema<IUser, UserModel, UserMethods>(
@@ -39,11 +40,8 @@ const userSchema = new Schema<IUser, UserModel, UserMethods>(
   {
     timestamps: true, // adds createdAt, updatedAt
     toJSON: { virtuals: true },
-  }
+  },
 );
 
 // Step 2: Create Model
-export const User = model<IUser, UserModel>(
-  "User",
-  userSchema
-);
+export const User = model<IUser, UserModel>('User', userSchema);

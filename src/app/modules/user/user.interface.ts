@@ -1,5 +1,6 @@
-import type { USER_ROLES } from "@/enums/user.js";
-import type { Model } from "mongoose";
+import type { Model } from 'mongoose';
+
+import type { USER_ROLES } from '@/enums/user.js';
 
 export interface IUser {
   id: string;

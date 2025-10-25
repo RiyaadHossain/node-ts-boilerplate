@@ -1,15 +1,13 @@
-// @ts-nocheck
-import type { IGenericErrorMessage } from "@/interfaces/error.js";
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-export const handleMongooseError = (
-  error: mongoose.Error
-): IGenericErrResponse => {
-  let message = "An error occurred";
+import type { IGenericErrorMessage, IGenericErrResponse } from '@/interfaces/error.js';
+
+export const handleMongooseError = (error: mongoose.Error): IGenericErrResponse => {
+  let message = 'An error occurred';
   let errors: IGenericErrorMessage[] = [];
 
   if (error instanceof mongoose.Error.ValidationError) {
-    message = "Validation Error";
+    message = 'Validation Error';
     errors = Object.entries(error.errors).map(([path, err]) => ({
       path,
       message: err.message,
@@ -21,9 +19,9 @@ export const handleMongooseError = (
     message = `Document not found for ${error.modelName} with ID ${error.value}`;
     errors.push({ path: error.path, message: error.message });
   } else {
-    message = "An unexpected error occurred";
+    message = 'An unexpected error occurred';
     errors.push({
-      path: error.path || "unknown",
+      path: error.path || 'unknown',
       message: error.message,
     });
   }

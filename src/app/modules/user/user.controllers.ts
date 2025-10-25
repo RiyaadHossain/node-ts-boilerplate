@@ -1,11 +1,12 @@
-import { userSearchAndFilterFields } from "@/app/modules/user/user.constants.js";
-import { UserService } from "@/app/modules/user/user.services.js";
-import paginationFields from "@/constants/pagination.js";
-import catchAsync from "@/shared/catch-async.js";
-import pick from "@/shared/pick.js";
-import sendResponse from "@/shared/send-response.js";
-import { type Request, type Response } from "express";
-import status from "http-status";
+import { type Request, type Response } from 'express';
+import status from 'http-status';
+
+import { userSearchAndFilterFields } from '@/app/modules/user/user.constants.js';
+import { UserService } from '@/app/modules/user/user.services.js';
+import paginationFields from '@/constants/pagination.js';
+import catchAsync from '@/shared/catch-async.js';
+import pick from '@/shared/pick.js';
+import sendResponse from '@/shared/send-response.js';
 
 const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   const paginationOptions = pick(req.query, paginationFields);
@@ -15,7 +16,7 @@ const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   const responseData = {
     statusCode: status.OK,
     success: true,
-    message: "Users retrieved successfully",
+    message: 'Users retrieved successfully',
     data: data.users,
     meta: data.meta,
   };

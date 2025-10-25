@@ -1,6 +1,8 @@
-import mongoose from "mongoose";
-import { Server } from "http";
-import { logger } from "@/utils/logger.js";
+import { Server } from 'http';
+
+import mongoose from 'mongoose';
+
+import { logger } from '@/utils/logger.js';
 
 let isShuttingDown = false;
 
@@ -18,12 +20,12 @@ export async function gracefulShutdown(server: Server, signal: string) {
 
     // 2️⃣ Close DB connections
     await mongoose.connection.close();
-    logger.info("✅ MongoDB connection closed.");
+    logger.info('✅ MongoDB connection closed.');
 
     // 3️⃣ Exit cleanly
     process.exit(0);
   } catch (err) {
-    logger.error("💥 Error during shutdown:", err);
+    logger.error('💥 Error during shutdown:', err);
     process.exit(1);
   }
 }

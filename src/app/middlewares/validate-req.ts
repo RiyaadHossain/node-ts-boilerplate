@@ -1,10 +1,9 @@
-import type { Request, Response, NextFunction } from "express";
-import type { AnyZodObject } from "zod/v3";
+import type { Request, Response, NextFunction } from 'express';
+import type { AnyZodObject } from 'zod/v3';
 
 // Middleware to validate request body against a Zod schema
 const validateRequest =
-  (schema: AnyZodObject) =>
-  async (req: Request, _res: Response, next: NextFunction) => {
+  (schema: AnyZodObject) => async (req: Request, _res: Response, next: NextFunction) => {
     try {
       await schema.parseAsync({
         body: req.body,

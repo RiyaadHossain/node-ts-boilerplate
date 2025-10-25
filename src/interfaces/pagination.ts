@@ -1,4 +1,4 @@
-import type { SortOrder } from "mongoose";
+import type { SortOrder } from 'mongoose';
 
 export type IPaginationOptions = {
   page?: number;

@@ -1,6 +1,5 @@
-import type { IAPIResponse } from "@interfaces/send-response.js";
-import type { Response } from "express";
-
+import type { IAPIResponse } from '@interfaces/send-response.js';
+import type { Response } from 'express';
 
 const sendResponse = <T>(res: Response, resData: IAPIResponse<T>): void => {
   res.status(resData.statusCode).json({
